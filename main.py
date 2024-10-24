@@ -14,7 +14,7 @@ from bs4 import BeautifulSoup
 from openai import OpenAI
 
 
-api_key = "sk-e70UJt34klvwni-5cNjf3qqjGoPp62kSyE9NGV9srkT3BlbkFJkrjLrakzdsVLsZA98IHNiVKust-PydSdRylSjBOvUA"
+api_key = "sk-svcacct-Xs-r3gk3jJP_rgNwxvrhxqCKcQQcpEA12pzHqPE-oIZr36nd_mWF5R8w7tnVutcT3BlbkFJQoUjLHqWPwZ7qXGI8sPm737zQ-hLfsRMr9DiFviituBOsIAUuE9-Fj_Sp1VvCAA"
 
 client = OpenAI(api_key=api_key)
 
