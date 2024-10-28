@@ -54,15 +54,15 @@ else:
 # Meeting Recording Upload with size validation
     audio_file = st.file_uploader("Upload Meeting Recording", type=["mp3", "wav", "mp4"])
 
+    if audio_file is not None:
+        if audio_file.size > MAX_FILE_SIZE:
+            st.error("File must be 200 MB or smaller.")
+
 # Company Information Upload with size validation
     company_info = st.file_uploader("Upload Company Information", type=["pdf", "docx", "ppt", "txt"], accept_multiple_files=True)
 
 
     company_info_link = st.text_input("Provide a website link for company information")
-
-    if audio_file is not None:
-        if audio_file.size > MAX_FILE_SIZE:
-            st.error("File must be 200 MB or smaller.")
 
     st.header("Select Template")
     templates = list(questions.keys())
