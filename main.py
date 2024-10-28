@@ -63,7 +63,7 @@ def truncate_text(text: str) -> str:
     completion = client.chat.completions.create(
         model="gpt-4o",
         messages=[
-            {"role": "system", "content": "Summarize the given script and information in 300 words."},
+            {"role": "system", "content": "Summarize the given script and information in 5 words."},
             {"role": "user", "content": f"{text}"}
         ]
     )
@@ -83,7 +83,7 @@ def generate_answers(transcript: str, company_info: str, questions) -> list:
             "content": [
                 {
                     "type": "text",
-                    "text": f"{truncated_text}\n\nPlease provide a detailed and specific answer to the following question in 300 words -\n\"{question}\""
+                    "text": f"{truncated_text}\n\nPlease provide a detailed and specific answer to the following question in 5 words -\n\"{question}\""
                 }
             ]
         }
@@ -96,7 +96,7 @@ def generate_answers(transcript: str, company_info: str, questions) -> list:
                     "content": [
                         {
                             "type": "text",
-                            "text": "You are a helpful assistant. Given the following combined text of an audio transcript and company information, please provide a detailed and specific answer to the question provided in 300 words."
+                            "text": "You are a helpful assistant. Given the following combined text of an audio transcript and company information, please provide a detailed and specific answer to the question provided in 5 words."
                         }
                     ]
                 },
