@@ -46,6 +46,14 @@ else:
     company_info = st.file_uploader("Upload Company Information", type=["pdf", "docx", "ppt", "txt"], accept_multiple_files=True)
     company_info_link = st.text_input("Provide a website link for company information")
 
+    if audio_file:
+    file_size_mb = audio_file.size / (1024 * 1024)  # Convert bytes to MB
+    if file_size_mb > 200.0:
+        st.error(f"The file size is {file_size_mb:.2f} MB, which exceeds the 200 MB limit.")
+        audio_file = None  # Reset the file if it exceeds the size limit
+
+
+
     st.header("Select Template")
     templates = list(questions.keys())
     selected_template = st.selectbox("Select a Template", templates)
