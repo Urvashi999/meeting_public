@@ -203,29 +203,60 @@ def get_current_history() -> dict:
     answers = generate_answers(transcript_text, company_info_text, questions)
     return answers'''
 
-def transcribe_and_analyze(audio_file, company_info, company_info_link, questions):
+# def transcribe_and_analyze(audio_file, company_info, company_info_link, questions):
+#     if audio_file:
+#         audio_file_path = f"temp_{audio_file.name}"
+#         with open(audio_file_path, "wb") as f:
+#             f.write(audio_file.getbuffer())
+#
+#         transcript_text = transcribe_audio(audio_file_path)
+#     else:
+#         transcript_text = ""
+#
+#
+#
+#     if company_info:
+#         company_file_path = f"temp_{company_info.name}"
+#         with open(company_file_path, "wb") as f:
+#             f.write(company_info.getbuffer())
+#         with open(company_file_path, "r", encoding="latin-1") as f:
+#             company_info_text = f.read()
+#         history["company_file"] = company_info.name
+#     elif company_info_link:
+#         company_info_text = fetch_company_info_from_link(company_info_link)
+#     else:
+#         company_info_text = ""
+#
+#     answers = generate_answers(transcript_text, company_info_text, questions)
+#     return answers
+
+def transcribe_and_analyze(audio_file, company_info_files, company_info_link, questions):
+    # Initialize transcript_text and company_info_text to avoid UnboundLocalError
+    transcript_text = ""
+    company_info_text = ""
+
+    # Handle audio file transcription
     if audio_file:
         audio_file_path = f"temp_{audio_file.name}"
         with open(audio_file_path, "wb") as f:
             f.write(audio_file.getbuffer())
 
+        # Transcribe the audio
         transcript_text = transcribe_audio(audio_file_path)
-    else:
-        transcript_text = ""
 
+    # Handle company information files and/or link
+    if company_info_files:
+        for file in company_info_files:
+            company_file_path = f"temp_{file.name}"
+            with open(company_file_path, "wb") as f:
+                f.write(file.getbuffer())
+            with open(company_file_path, "r", encoding="latin-1") as f:
+                company_info_text += f.read() + "\n"  # Append each file's content
 
-
-    if company_info:
-        company_file_path = f"temp_{company_info.name}"
-        with open(company_file_path, "wb") as f:
-            f.write(company_info.getbuffer())
-        with open(company_file_path, "r", encoding="latin-1") as f:
-            company_info_text = f.read()
-        history["company_file"] = company_info.name
     elif company_info_link:
+        # Fetch company information from the provided link if no files are uploaded
         company_info_text = fetch_company_info_from_link(company_info_link)
-    else:
-        company_info_text = ""
 
+    # Generate answers using the transcript and company information text
     answers = generate_answers(transcript_text, company_info_text, questions)
     return answers
