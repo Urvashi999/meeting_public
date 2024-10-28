@@ -60,6 +60,9 @@ else:
 
     company_info_link = st.text_input("Provide a website link for company information")
 
+    if audio_file is not None:
+        if audio_file.size > MAX_FILE_SIZE:
+            st.error("File must be 200 MB or smaller.")
 
     st.header("Select Template")
     templates = list(questions.keys())
