@@ -61,16 +61,19 @@ questions = {
     #     "How does the application align with the company's long-term goals?"
     # ],
     "Tier 3": [
-        "What is the primary objective of the Lucent Global application?",
-        "What markets is Lucent Global targeting?",
-        "What is the technology focus for Lucent Global?",
-        "How does the company plan to scale operations?",
-        "What are the expected financial returns?",
-        "How will the application enhance customer satisfaction?",
-        "What partnerships are integral to the application's success?",
-        "What are the environmental impacts of the application?",
-        "How does the company plan to address market competition?",
-        "What are the long-term sustainability goals?"
+        "Describe the export promotional activities that you have undertaken for the past 2 years.",
+        "What was the value (full cost) of your export promotional activity expenditure on eligible products in the previous financial year?",
+        "Describe the export promotional activities that you plan to undertake to promote your eligible products in 2025-26 and 2026-27.",
+        "Describe the business goals you seek to achieve through your export promotional activities and how you will measure your export success",
+        "Describe your experience, capability and preparation to expand in your existing export market/s",
+        "Describe how you will expand your existing export promotional activities into new key export market/s",
+        "Describe how you will make a strategic shift in your export promotional activities to new key market/s.",
+        "In the table below, please enter planned eligible promotional activities and associated eligible expenditure that you intend to undertake in 2025-26 and 2026-27.",
+        "Describe the competitive advantage or unique selling proposition of your products or services.",
+        "How will you scale up your business (including financial resources) to match increased demand for your eligible product or service?",
+        "How will you comply with laws or regulations that are relevant to your eligible product or service in your target markets?",
+        "What potential legal or financial risks will you need to manage in your export activities (e.g. ensuring you get paid, protecting your intellectual property, disruptions to your supply chain, handling unanticipated changes in market demand, managing currency fluctuations etc.) and how do you plan to mitigate them?",
+        "How will you compete in your target markets?"
     ],
     "Tier 3 other than tourism": [
         "What services are being offered under Rule 21(b)1?",
@@ -97,16 +100,18 @@ questions = {
     # "How does the grant align with the company's long-term goals?"
     # ],
     "Tier 2": [
-        "What is the primary objective of the Plan-to-market initiative?",
-        "What markets is the company targeting?",
-        "What is the strategy for entering new markets?",
-        "How does the company plan to measure success in new markets?",
-        "What are the key financial projections?",
-        "How does the company plan to manage risks in new markets?",
-        "What are the expected challenges and how will they be addressed?",
-        "What partnerships are essential for the initiative?",
-        "How does the Plan-to-market align with the company's long-term goals?",
-        "What are the main milestones for the initiative?"
+       "Describe the export promotional activities that you have undertaken for the past 2 years.",
+        "What was the value (full cost) of your export promotional activity expenditure on eligible products in the previous financial year?",
+        "Describe the export promotional activities that you plan to undertake to promote your eligible products in 2025-26 and 2026-27.",
+        "Describe the business goals you seek to achieve through your export promotional activities and how you will measure your export success",
+        "Describe your experience, capability and preparation to expand in your existing export market/s",
+        "Describe how you are expanding your export promotional activities within your existing export market/s",
+        "Enter your planned eligible promotional activities and associated eligible expenditure that you intend to undertake in 2025-26 and 2026-27.",
+        "Describe the competitive advantage or unique selling proposition of your products or services.",
+        "How will you scale up your business (including financial resources) to match increased demand for your eligible product or service?",
+        "How will you comply with laws or regulations that are relevant to your eligible product or service in your target markets?",
+        "What potential legal or financial risks will you need to manage in your export activities (e.g. ensuring you get paid, protecting your intellectual property, disruptions to your supply chain, handling unanticipated changes in market demand, managing currency fluctuations etc.) and how do you plan to mitigate them?",
+        "How will you compete in your target markets?"
     ],
     # "Template 9": [
     # "What is the primary objective of the application?",
