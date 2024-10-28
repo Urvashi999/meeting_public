@@ -49,7 +49,7 @@ else:
 
 
     # File size limit in bytes (200 MB)
-    MAX_FILE_SIZE = 5 * 1024 * 1024
+    MAX_FILE_SIZE = 1 * 1024 * 1024
 
 # Meeting Recording Upload with size validation
     audio_file = st.file_uploader("Upload Meeting Recording", type=["mp3", "wav", "mp4"])
