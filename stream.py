@@ -65,7 +65,7 @@ else:
     templates = list(questions.keys())
     selected_template = st.selectbox("Select a Template", templates)
     if st.button("Proceed"):
-        if audio_file.size > MAX_FILE_SIZE:
+        if audio_file.size < MAX_FILE_SIZE:
             st.error("File must be 200 MB or smaller.")
 
         if selected_template and (audio_file or company_info or company_info_link):
