@@ -27,16 +27,14 @@ questions = {
     #     "What is the company's vision for the future?"
     # ],
     "Tier 1": [
-        "Describe the export promotion activity that you have undertaken for the past 1 to 2 years.",
-        "What business goals are you seeking to achieve through your marketing?",
-        "What indices will you use to measure success?",
-        "How do you plan to position your products in the market?",
-        "What are the key market segments you are targeting?",
-        "How do you plan to differentiate your products from competitors?",
-        "What budget is allocated for marketing activities?",
-        "How will you measure the success of your marketing campaigns?",
-        "What partnerships or collaborations are planned?",
-        "What are the expected outcomes from your marketing plan?"
+        "Describe the export promotional activities that you plan to undertake to promote your eligible products in 2025-26 and 2026-27.",
+        "Describe the business goals you seek to achieve through your export promotional activities and how you will measure your export success.",
+        "Enter planned eligible promotional activities, export training activities and associated eligible expenditure that you intend to undertake in 2025-26 and 2026-27.",
+        "Describe the competitive advantage or unique selling proposition of your products.",
+        "How will you scale up your business (including financial resources) to match increased demand for your eligible product?",
+        "How will you comply with laws or regulations that are relevant to your eligible product in your target markets?",
+        "What potential legal or financial risks will you need to manage in your export activities (e.g. ensuring you get paid, protecting your intellectual property, disruptions to your supply chain, handling unanticipated changes in market demand, managing currency fluctuations etc.) and how do you plan to mitigate them?",
+        "How will you compete in your target export markets?"
     ],
     # "Template 3": [
     #     "What is the primary objective of the application?",
@@ -99,16 +97,16 @@ questions = {
     # "How does the grant align with the company's long-term goals?"
     # ],
     "Tier 2": [
-    "What is the primary objective of the Plan-to-market initiative?",
-    "What markets is the company targeting?",
-    "What is the strategy for entering new markets?",
-    "How does the company plan to measure success in new markets?",
-    "What are the key financial projections?",
-    "How does the company plan to manage risks in new markets?",
-    "What are the expected challenges and how will they be addressed?",
-    "What partnerships are essential for the initiative?",
-    "How does the Plan-to-market align with the company's long-term goals?",
-    "What are the main milestones for the initiative?"
+        "What is the primary objective of the Plan-to-market initiative?",
+        "What markets is the company targeting?",
+        "What is the strategy for entering new markets?",
+        "How does the company plan to measure success in new markets?",
+        "What are the key financial projections?",
+        "How does the company plan to manage risks in new markets?",
+        "What are the expected challenges and how will they be addressed?",
+        "What partnerships are essential for the initiative?",
+        "How does the Plan-to-market align with the company's long-term goals?",
+        "What are the main milestones for the initiative?"
     ],
     # "Template 9": [
     # "What is the primary objective of the application?",
@@ -123,8 +121,6 @@ questions = {
     # "What are the long-term sustainability goals?"
     # ],  
 }
-
-
 
 '''
 Template 2: ABT_Plan-to-market.pdf
