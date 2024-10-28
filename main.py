@@ -14,7 +14,7 @@ from bs4 import BeautifulSoup
 from openai import OpenAI
 
 
-api_key = "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"
+api_key = "sk-svcacct-K54KWxzrXmL8Qqn43nYrfKQQ0Q5ml-UwLfce8htMGE2GpVc0shg2UcwshyiG7COyzHT3BlbkFJMniVD3oTgDRsQuyJsksl23KpaCeZeuyCC6i0txYtxt8D6qqjJHlWhUxx6XRS6Wnd4A"
 
 client = OpenAI(api_key=api_key)
 
@@ -63,7 +63,7 @@ def truncate_text(text: str) -> str:
     completion = client.chat.completions.create(
         model="gpt-4o",
         messages=[
-            {"role": "system", "content": "Summarize the given script and information in 1000 words."},
+            {"role": "system", "content": "Summarize the given script and information in 300 words."},
             {"role": "user", "content": f"{text}"}
         ]
     )
