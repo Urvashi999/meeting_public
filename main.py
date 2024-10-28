@@ -63,7 +63,7 @@ def truncate_text(text: str) -> str:
     completion = client.chat.completions.create(
         model="gpt-4o",
         messages=[
-            {"role": "system", "content": "Summarize the given script and information in less then 300 words."},
+            {"role": "system", "content": "Summarize the given script and information in less then 200 words."},
             {"role": "user", "content": f"{text}"}
         ]
     )
@@ -83,7 +83,7 @@ def generate_answers(transcript: str, company_info: str, questions) -> list:
             "content": [
                 {
                     "type": "text",
-                    "text": f"{truncated_text}\n\nPlease provide a detailed and specific answer to the following question in less then 300 words -\n\"{question}\""
+                    "text": f"{truncated_text}\n\nPlease provide a detailed and specific answer to the following question in less then 200 words -\n\"{question}\""
                 }
             ]
         }
@@ -96,7 +96,7 @@ def generate_answers(transcript: str, company_info: str, questions) -> list:
                     "content": [
                         {
                             "type": "text",
-                            "text": "You are a helpful assistant. Given the following combined text of an audio transcript and company information, please provide a detailed and specific answer to the question provided in less then 300 words."
+                            "text": "You are a helpful assistant. Given the following combined text of an audio transcript and company information, please provide a detailed and specific answer to the question provided in less then 200 words."
                         }
                     ]
                 },
@@ -203,6 +203,8 @@ def get_current_history() -> dict:
     answers = generate_answers(transcript_text, company_info_text, questions)
     return answers'''
 
+
+# single file upload code
 # def transcribe_and_analyze(audio_file, company_info, company_info_link, questions):
 #     if audio_file:
 #         audio_file_path = f"temp_{audio_file.name}"
@@ -230,6 +232,7 @@ def get_current_history() -> dict:
 #     answers = generate_answers(transcript_text, company_info_text, questions)
 #     return answers
 
+# Multiple file upload code
 def transcribe_and_analyze(audio_file, company_info_files, company_info_link, questions):
     # Initialize transcript_text and company_info_text to avoid UnboundLocalError
     transcript_text = ""
