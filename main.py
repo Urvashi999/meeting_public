@@ -61,7 +61,7 @@ def fetch_company_info_from_link(url: str) -> str:
 
 def truncate_text(text: str) -> str:
     completion = client.chat.completions.create(
-        model="gpt-3.5",
+        model="gpt-4o",
         messages=[
             {"role": "system", "content": "Summarize the given script and information in less then 300 words."},
             {"role": "user", "content": f"{text}"}
@@ -89,7 +89,7 @@ def generate_answers(transcript: str, company_info: str, questions) -> list:
         }
 
         response = client.chat.completions.create(
-            model="gpt-3.5",
+            model="gpt-4o",
             messages=[
                 {
                     "role": "system",
@@ -128,7 +128,7 @@ def revise_answer(original_answer, instruction):
     }
 
     response = client.chat.completions.create(
-        model="gpt-3.5",
+        model="gpt-4o",
         messages=[
             {
                 "role": "system",
