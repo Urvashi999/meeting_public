@@ -45,23 +45,25 @@ else:
     st.header("Upload Files")
     audio_file = st.file_uploader("Upload Meeting Recording", type=["mp3", "wav", "mp4"])
 
-    if audio_file:
+    if audio_file is not None:
         file_size_mb = audio_file.size / (1024 * 1024)  # Convert bytes to MB
     if file_size_mb > MAX_FILE_SIZE_MB:
-        st.error(f"The file size is {file_size_mb:.2f} MB, which exceeds the 200 MB limit.")
+        st.error(f"The audio file size is {file_size_mb:.2f} MB, which exceeds the 200 MB limit.")
         audio_file = None  # Reset the file if it exceeds the size limit
-
+    else:
+        st.success(f"Uploaded audio file: {audio_file.name}")
 
     company_info = st.file_uploader("Upload Company Information", type=["pdf", "docx", "ppt", "txt"], accept_multiple_files=True)
 
+if company_info:
+    for company_info in company_info:
+        file_size_mb = company_info.size / (1024 * 1024)  # Convert bytes to MB
+        if file_size_mb > MAX_FILE_SIZE_MB:
+            st.error(f"The file {company_info.name} is {file_size_mb:.2f} MB, which exceeds the 200 MB limit.")
+        else:
+            st.success(f"Uploaded company info file: {company_info.name}")
 
-    if company_info:
-        for company_info in company_info:
-            file_size_mb = company_info.size / (1024 * 1024)
-            if file_size_mb > MAX_FILE_SIZE_MB:
-                st.error(f"The file {company_info.name} is {file_size_mb:.2f} MB, which exceeds the 200 MB limit.")
-            else:
-                st.write(f"{company_info.name} uploaded successfully.")
+
 
 
     company_info_link = st.text_input("Provide a website link for company information")
