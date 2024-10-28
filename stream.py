@@ -66,7 +66,7 @@ else:
     selected_template = st.selectbox("Select a Template", templates)
     if st.button("Proceed"):
         if audio_file.size < MAX_FILE_SIZE:
-            st.error(audio_file.size)
+            st.error(audio_file.size + MAX_FILE_SIZE)
 
         if selected_template and (audio_file or company_info or company_info_link):
             st.session_state.questions = questions[selected_template]
