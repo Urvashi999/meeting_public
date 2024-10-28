@@ -61,6 +61,11 @@ else:
 # Company Information Upload with size validation
     company_info = st.file_uploader("Upload Company Information", type=["pdf", "docx", "ppt", "txt"], accept_multiple_files=True)
 
+    if company_info:
+        for file in company_info:
+            if file.size > MAX_FILE_SIZE:
+                st.error(f"The file '{file.name}' exceeds 200 MB and cannot be uploaded.")
+
 
     company_info_link = st.text_input("Provide a website link for company information")
 
@@ -68,7 +73,7 @@ else:
     templates = list(questions.keys())
     selected_template = st.selectbox("Select a Template", templates)
     if st.button("Proceed"):
-        if selected_template and (audio_file or company_info or company_info_link):
+        if selected_template and (audio_file or company_info or company_info_link) and audio_file.size < MAX_FILE_SIZE :
             st.session_state.questions = questions[selected_template]
             st.session_state.answers = transcribe_and_analyze(audio_file, company_info, company_info_link, st.session_state.questions)
             st.success("Files uploaded successfully and template selected")
