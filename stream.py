@@ -43,9 +43,34 @@ else:
     MAX_FILE_SIZE_MB = 200.0  # Max file size in MB
 
     st.header("Upload Files")
-    audio_file = st.file_uploader("Upload Meeting Recording", type=["mp3", "wav", "mp4"])
+    # audio_file = st.file_uploader("Upload Meeting Recording", type=["mp3", "wav", "mp4"])
+    #
+    # company_info = st.file_uploader("Upload Company Information", type=["pdf", "docx", "ppt", "txt"], accept_multiple_files=True)
 
-    company_info = st.file_uploader("Upload Company Information", type=["pdf", "docx", "ppt", "txt"], accept_multiple_files=True)
+
+    # File size limit in bytes (200 MB)
+MAX_FILE_SIZE = 200 * 1024 * 1024
+
+# Meeting Recording Upload with size validation
+audio_file = st.file_uploader("Upload Meeting Recording", type=["mp3", "wav", "mp4"])
+if audio_file is not None:
+    if audio_file.size > MAX_FILE_SIZE:
+        st.error("File must be 200 MB or smaller.")
+    else:
+        # Process the file (e.g., save, analyze)
+        st.success("File uploaded successfully.")
+
+# Company Information Upload with size validation
+company_info = st.file_uploader("Upload Company Information", type=["pdf", "docx", "ppt", "txt"], accept_multiple_files=True)
+if company_info:
+    for file in company_info:
+        if file.size > MAX_FILE_SIZE:
+            st.error(f"The file {file.name} exceeds 200 MB and cannot be uploaded.")
+        else:
+            # Process the file
+            st.success(f"{file.name} uploaded successfully.")
+
+
 
     company_info_link = st.text_input("Provide a website link for company information")
 
@@ -69,15 +94,15 @@ else:
             st.write(str(f"**{qa['question']}**"))
             answer = st.text_area(f"Answer {i+1}", value=qa['answer'], key=f"answer_{i+1}")
             answers.append(answer)
-            
+
             instruction = st.text_input(f"Instruction for Answer {i+1}", key=f"instruction_{i+1}")
             instructions.append(instruction)
-            
+
             if st.button(f"Revise Answer {i+1}", key=f"revise_{i+1}"):
                 revised_answer = revise_answer(answer, instruction)
                 st.session_state.answers[i]['answer'] = revised_answer
                 st.experimental_rerun()
-        
+
         if st.button("Save"):
             st.session_state.final_answers = [{"question": st.session_state.questions[i], "answer": ans} for i, ans in enumerate(answers)]
             save_history({
