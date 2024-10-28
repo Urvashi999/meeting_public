@@ -42,8 +42,8 @@ else:
     st.title("Meeting Analysis Tool")
     
     st.header("Upload Files")
-    audio_file = st.file_uploader("Upload Meeting Recording", type=["mp3", "wav", "mp4"])
-    company_info = st.file_uploader("Upload Company Information", type=["pdf", "docx", "ppt", "txt"])
+    audio_file = st.file_uploader("Upload Meeting Recording", type=["mp3", "wav", "mp4"], accept_multiple_files=True)
+    company_info = st.file_uploader("Upload Company Information", type=["pdf", "docx", "ppt", "txt"], accept_multiple_files=True)
     company_info_link = st.text_input("Provide a website link for company information")
 
     st.header("Select Template")
