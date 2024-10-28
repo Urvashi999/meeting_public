@@ -214,32 +214,18 @@ def transcribe_and_analyze(audio_file, company_info, company_info_link, question
         transcript_text = ""
 
 
-    # Process each file in company_info_files
-    if company_info:
-        for file in company_info                                :
-            company_file_path = f"temp_{file.name}"
-            with open(company_file_path, "wb") as f:
-                f.write(file.getbuffer())
-            with open(company_file_path, "r", encoding="latin-1") as f:
-                company_info_text += f.read() + "\n"  # Append each file's content
 
+    if company_info:
+        company_file_path = f"temp_{company_info.name}"
+        with open(company_file_path, "wb") as f:
+            f.write(company_info.getbuffer())
+        with open(company_file_path, "r", encoding="latin-1") as f:
+            company_info_text = f.read()
+        history["company_file"] = company_info.name
     elif company_info_link:
         company_info_text = fetch_company_info_from_link(company_info_link)
     else:
         company_info_text = ""
-
-
-    # if company_info:
-    #     company_file_path = f"temp_{company_info.name}"
-    #     with open(company_file_path, "wb") as f:
-    #         f.write(company_info.getbuffer())
-    #     with open(company_file_path, "r", encoding="latin-1") as f:
-    #         company_info_text = f.read()
-    #     history["company_file"] = company_info.name
-    # elif company_info_link:
-    #     company_info_text = fetch_company_info_from_link(company_info_link)
-    # else:
-    #     company_info_text = ""
 
     answers = generate_answers(transcript_text, company_info_text, questions)
     return answers
