@@ -49,7 +49,7 @@ else:
 
 
     # File size limit in bytes (200 MB)
-    MAX_FILE_SIZE = 200 * 1024 * 1024
+    MAX_FILE_SIZE = 5 * 1024 * 1024
 
 # Meeting Recording Upload with size validation
     audio_file = st.file_uploader("Upload Meeting Recording", type=["mp3", "wav", "mp4"])
@@ -60,14 +60,14 @@ else:
 
     company_info_link = st.text_input("Provide a website link for company information")
 
+    if audio_file is not None:
+        if audio_file.size > MAX_FILE_SIZE:
+            st.error("File must be 200 MB or smaller.")
 
     st.header("Select Template")
     templates = list(questions.keys())
     selected_template = st.selectbox("Select a Template", templates)
     if st.button("Proceed"):
-        if audio_file.size < MAX_FILE_SIZE:
-            st.error(audio_file.size + MAX_FILE_SIZE)
-
         if selected_template and (audio_file or company_info or company_info_link):
             st.session_state.questions = questions[selected_template]
             st.session_state.answers = transcribe_and_analyze(audio_file, company_info, company_info_link, st.session_state.questions)
