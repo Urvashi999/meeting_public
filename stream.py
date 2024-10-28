@@ -40,18 +40,20 @@ else:
         st.sidebar.write("No history available.")
 
     st.title("Meeting Analysis Tool")
-    
+    MAX_FILE_SIZE_MB = 200.0  # Max file size in MB
+
     st.header("Upload Files")
     audio_file = st.file_uploader("Upload Meeting Recording", type=["mp3", "wav", "mp4"])
-    company_info = st.file_uploader("Upload Company Information", type=["pdf", "docx", "ppt", "txt"], accept_multiple_files=True)
-    company_info_link = st.text_input("Provide a website link for company information")
 
     if audio_file:
-    file_size_mb = audio_file.size / (1024 * 1024)  # Convert bytes to MB
-    if file_size_mb > 200.0:
+        file_size_mb = audio_file.size / (1024 * 1024)  # Convert bytes to MB
+    if file_size_mb > MAX_FILE_SIZE_MB:
         st.error(f"The file size is {file_size_mb:.2f} MB, which exceeds the 200 MB limit.")
         audio_file = None  # Reset the file if it exceeds the size limit
 
+
+    company_info = st.file_uploader("Upload Company Information", type=["pdf", "docx", "ppt", "txt"], accept_multiple_files=True)
+    company_info_link = st.text_input("Provide a website link for company information")
 
 
     st.header("Select Template")
