@@ -61,9 +61,9 @@ def fetch_company_info_from_link(url: str) -> str:
 
 def truncate_text(text: str) -> str:
     completion = client.chat.completions.create(
-        model="gpt-4o",
+        model="gpt-3.5",
         messages=[
-            {"role": "system", "content": "Summarize the given script and information in less then 200 words."},
+            {"role": "system", "content": "Summarize the given script and information in less then 300 words."},
             {"role": "user", "content": f"{text}"}
         ]
     )
@@ -89,14 +89,14 @@ def generate_answers(transcript: str, company_info: str, questions) -> list:
         }
 
         response = client.chat.completions.create(
-            model="gpt-4o",
+            model="gpt-3.5",
             messages=[
                 {
                     "role": "system",
                     "content": [
                         {
                             "type": "text",
-                            "text": "You are a helpful assistant. Given the following combined text of an audio transcript and company information, please provide a detailed and specific answer to the question provided in less then 200 words."
+                            "text": "You are a helpful assistant. Given the following combined text of an audio transcript and company information, please provide a detailed and specific answer to the question provided in less then 300 words."
                         }
                     ]
                 },
@@ -128,14 +128,14 @@ def revise_answer(original_answer, instruction):
     }
 
     response = client.chat.completions.create(
-        model="gpt-4o",
+        model="gpt-3.5",
         messages=[
             {
                 "role": "system",
                 "content": [
                     {
                         "type": "text",
-                        "text": "You are a helpful assistant. Please revise the given answer according to the instruction provided."
+                        "text": "You are a helpful assistant. Please revise the given answer according to the instruction provided in less then 300 words."
                     }
                 ]
             },
