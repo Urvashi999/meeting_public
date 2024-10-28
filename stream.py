@@ -43,39 +43,9 @@ else:
     MAX_FILE_SIZE_MB = 200.0  # Max file size in MB
 
     st.header("Upload Files")
-    # audio_file = st.file_uploader("Upload Meeting Recording", type=["mp3", "wav", "mp4"])
-
-    # company_info = st.file_uploader("Upload Company Information", type=["pdf", "docx", "ppt", "txt"], accept_multiple_files=True)
-
-
-
-# Audio file uploader with size validation
-    audio_file = st.file_uploader("Upload Meeting Recording", type=["mp3", "wav", "mp4"])
-
-    if audio_file is not None:
-          file_size_mb = audio_file.size / (1024 * 1024)  # Convert bytes to MB
-    if file_size_mb > MAX_FILE_SIZE_MB:
-        st.error(f"The audio file size is {file_size_mb:.2f} MB, which exceeds the 200 MB limit.")
-        audio_file = None  # Reset the file if it exceeds the size limit
-    else:
-        st.success(f"Uploaded audio file: {audio_file.name} ({file_size_mb:.2f} MB)")
-
-# Company information uploader with size validation
-company_info = st.file_uploader("Upload Company Information",
-                                type=["pdf", "docx", "ppt", "txt"], accept_multiple_files=True)
-
-if company_info:  # Ensure company_info is not None
-    for company_info_model in company_info:
-        file_size_mb = company_info_model.size / (1024 * 1024)  # Convert bytes to MB
-        if file_size_mb > MAX_FILE_SIZE_MB:
-            st.error(f"The file {company_info_model.name} is {file_size_mb:.2f} MB, which exceeds the 200 MB limit.")
-        else:
-            st.success(f"Uploaded company info file: {company_info_model.name} ({file_size_mb:.2f} MB)")
-
-
-
-
-    company_info_link = st.text_input("Provide a website link for company information")
+     audio_file = st.file_uploader("Upload Meeting Recording", type=["mp3", "wav", "mp4"])
+     company_info = st.file_uploader("Upload Company Information", type=["pdf", "docx", "ppt", "txt"], accept_multiple_files=True)
+     company_info_link = st.text_input("Provide a website link for company information")
 
 
     st.header("Select Template")
