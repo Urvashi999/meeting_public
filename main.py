@@ -27,7 +27,7 @@ history = {
 }
 
 MAX_CONTEXT_LENGTH = 4096
-MAX_FILE_SIZE = 25 * 1024 * 1024
+# MAX_FILE_SIZE = 25 * 1024 * 1024
 
 def transcribe_audio(file_path: str) -> str:
     audio_file = open(file_path, "rb")
